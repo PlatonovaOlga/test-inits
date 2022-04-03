@@ -1,6 +1,6 @@
 """
-Найти и сохранить в excel-совместимый файл трёх лучших выпускников.
-Функция должна возвращать наазвание созданного файла
+Find and save in an excel-compatible file the top three graduates.
+The function should return the name of the created file 
 """
 
 from heapq import nlargest

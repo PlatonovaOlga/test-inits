@@ -1,10 +1,10 @@
 """
-Сопоставить списки одинаковой длины и найти тех, кто является призывником.
+Match lists of the same length and find those who are recruits.
 
-Первый - имена студентов, позволяющие их точно идентифицировать. 
-Второй — год рождения. 
-Третий — пол студента.
-Часть данных утрачены. 
+The first is the names of the students, allowing them to be accurately identified.
+The second is the year of birth.
+The third is the gender of the student.
+Part of the data is lost. 
 """
 
 from data import names, bday_years, genders
@@ -12,14 +12,15 @@ from data import names, bday_years, genders
 
 def get_recruits(names, bday_years, genders):
     """
-    Принимает три списка одинаковой длины.
-    Возвращает список с именами студентов мужского пола, которые достигли или могут достигнуть 18 лет в 2021 году, 
-    но при этом не старше 30 лет.
-    Cтуденты, по которым невозможно точно установить информацию, попадают в отдельный список.
+    Accepts three lists of the same length.
+    Returns a dict with two items: 
+    1. list with the names of male students who are or may be 18 years of age in 2021,
+    but not older than 30 years.
+    2. Students for whom it is impossible to accurately establish information. 
     """
     def is_rec(student):
         """
-        Идентифицирует тех, кто точно является призывником
+        Identifies those who are definitely recruits 
         """
         if not student[1] or not student[2]:
             return False
@@ -32,7 +33,7 @@ def get_recruits(names, bday_years, genders):
 
     def is_mb_rec(student):
         """
-        Идентифицирует тех, кто возможно является призывником
+        Identifies those who maybe are definitely recruits 
         """
         if student[2] == 'Female' or is_rec(student):
             return False
